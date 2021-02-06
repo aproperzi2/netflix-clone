@@ -1,7 +1,3 @@
-.plansScreen {
-
-}
-
 .plansScreen__plan {
   display: flex;
   justify-content: space-between;
@@ -11,10 +7,6 @@
 
 .plansScreen__plan:hover {
   opacity: 1;
-}
-
-.plansScreen__info {
-
 }
 
 .plansScreen__plan > button {

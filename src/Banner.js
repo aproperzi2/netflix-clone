@@ -7,6 +7,7 @@ function Banner() {
 
   const [movie, setMovie] = useState([]);
 
+  // Randomly generate a movie banner with title and description
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
@@ -21,8 +22,7 @@ function Banner() {
     fetchData();
   }, [])
 
-  console.log(movie)
-
+  // truncate description in banner, if description (string) is greater than specified number (150), trim the string down to a character count of 150 and append '...' else just return the entire string
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + '...' : string;
   }

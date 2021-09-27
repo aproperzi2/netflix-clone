@@ -17,30 +17,27 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  // Handle login / logout
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
-      if (userAuth) {
-        // Logged In
-        dispatch(login({
-          uid: userAuth.uid,
-          email: userAuth.email,
-        }))
-      } else {
-        // Logged Out
-        dispatch(logout());
-      }
-    })
-    // cleanup
-    return unsubscribe;
-  }, [dispatch])
+  // // Handle login / logout
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(userAuth => {
+  //     if (userAuth) {
+  //       // Logged In
+  //       dispatch(login({
+  //         uid: userAuth.uid,
+  //         email: userAuth.email,
+  //       }))
+  //     } else {
+  //       // Logged Out
+  //       dispatch(logout());
+  //     }
+  //   })
+  //   // cleanup
+  //   return unsubscribe;
+  // }, [dispatch])
 
   return (
     <div className="app">
       <Router>
-        {!user ? (
-          <LoginScreen />
-        ) : (
           <Switch>
             <Route path="/profile">
               <ProfileScreen />
@@ -49,7 +46,6 @@ function App() {
               <HomeScreen />
             </Route>
         </Switch>
-        )}
     </Router>
     </div>
   );
